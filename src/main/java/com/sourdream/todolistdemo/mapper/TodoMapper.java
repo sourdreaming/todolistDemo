@@ -11,4 +11,14 @@ public interface TodoMapper {
     List<Todo> getAllTodo(); //获取所有todos
 
     void addTodo(Todo todo);
+
+
+    Todo getTodoById(Long id);
+
+
+    Long deleteTodo(Long id);
+
+//    Long updateContentTodoById(Todo todo);
+
+    Long updateStatusTodoById(Todo todo);
 }

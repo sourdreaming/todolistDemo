@@ -8,4 +8,16 @@
     <insert id="addTodo" parameterType="com.sourdream.todolistdemo.bean.Todo">
         insert into todo (content,status) values (#{content},#{status})
     </insert>
+
+    <delete id="deleteTodo" parameterType="Long">
+        delete from todo where id=#{id}
+    </delete>
+
+    <update id="updateTodoById" parameterType="com.sourdream.todolistdemo.bean.Todo">
+        update todo set content=#{content},status=#{status} where id=#{id}
+    </update>
+
+    <select id="getTodoById" parameterType="Long" resultType="com.sourdream.todolistdemo.bean.Todo">
+        select * from todo where id=#{id}
+    </select>
 </mapper>
