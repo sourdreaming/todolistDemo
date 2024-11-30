@@ -13,11 +13,14 @@
         delete from todo where id=#{id}
     </delete>
 
-    <update id="updateTodoById" parameterType="com.sourdream.todolistdemo.bean.Todo">
+    <update id="updateContentTodoById" parameterType="com.sourdream.todolistdemo.bean.Todo">
         update todo set content=#{content},status=#{status} where id=#{id}
     </update>
 
     <select id="getTodoById" parameterType="Long" resultType="com.sourdream.todolistdemo.bean.Todo">
         select * from todo where id=#{id}
     </select>
+    <update id="updateStatusTodoById" parameterType="com.sourdream.todolistdemo.bean.Todo">
+        update todo set status=#{status} where id=#{id}
+    </update>
 </mapper>

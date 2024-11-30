@@ -18,7 +18,7 @@ public interface TodoMapper {
 
     Long deleteTodo(Long id);
 
-//    Long updateContentTodoById(Todo todo);
+    Long updateContentTodoById(Todo todo);
 
     Long updateStatusTodoById(Todo todo);
 }

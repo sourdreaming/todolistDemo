@@ -39,16 +39,17 @@ public class TodoController {
     }
 
 
-//    @PostMapping("/updateContentTodo/{id}")
-//    //获取前端传入的 id 和 todo，调用 service 中的 updateContentTodoById 方法，返回更新结果
-//    public ResponseEntity<String> updateContentTodo(@PathVariable Long id, @RequestBody Todo todo) {
-//        String result = todoService.updateContentTodoById(id, todo);
-//        if ("Success".equals(result)){
-//            return ResponseEntity.ok("Todo updated Success");
-//        }else{
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
-//        }
-//    }
+    @PostMapping("/updateContentTodo/{id}")
+    //获取前端传入的 id 和 todo，调用 service 中的 updateContentTodoById 方法，返回更新结果
+    public ResponseEntity<String> updateContentTodo(@PathVariable Long id, @RequestBody Todo todo) {
+        // 调用 service 中的 updateContentTodoById 方法，返回更新结果
+        String result = todoService.updateContentTodoById(id, todo);
+        if ("Success".equals(result)){
+            return ResponseEntity.ok("Todo updated Success");
+        }else{
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
+        }
+    }
 
 
 

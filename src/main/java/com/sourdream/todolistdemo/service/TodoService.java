@@ -51,34 +51,43 @@ public class TodoService {
     }
 
 
-//    //更新 todo 的 content 和 status
-//    public String updateContentTodoById(Long id, Todo todo) {
-//       //判断 id 是否合法
-//        if (id == null || id <= 0) {
-//            return "Invalid ID";
-//        }
-//       // id 合法后，查询对应的 todo，将 todo 中的 content 修改为新的 content
-//        Todo existingTodo = todoMapper.getTodoById(id);
-//        if (existingTodo == null) {
-//            return "Todo not found";
-//        }
-//
-//        existingTodo.setContent(todo.getContent());
-//
-//        Long rowsAffected = todoMapper.updateContentTodoById(existingTodo);
-//        if (rowsAffected != 0) {
-//            return "Failure";
-//        }
-//        return "Success";
-//
-//    }
+    //更新 todo 的 content 和 status
+    public String updateContentTodoById(Long id, Todo todo) {
+       //判断 id 是否合法
+        if (id == null || id <= 0) {
+            return "Invalid ID";
+        }
+       // id 合法后，查询对应的 todo，将 todo 中的 content 修改为新的 content
+        Todo existingTodo = todoMapper.getTodoById(id);
+        if (existingTodo == null) {
+            return "Todo not found";
+        }
+
+        existingTodo.setContent(todo.getContent());
+
+        Long rowsAffected = todoMapper.updateContentTodoById(existingTodo);
+        if (rowsAffected == 0) {
+            return "Failure";
+        }
+        return "Success";
+
+    }
 
     public String updateStatusTodoById(Long id, Todo todo){
         // 调用 mapper 中的方法更新 todo 的 status
-        if (id == null && id <= 0){
+        if (id == null || id <= 0){
             return "Invalid ID";
         }
-        if (todo.getStatus())
+        Todo existingTodo = todoMapper.getTodoById(id);
+        if (existingTodo == null){
+            return "Todo not found";
+        }
+        existingTodo.setStatus(todo.getStatus());
+        Long rowsAffected = todoMapper.updateStatusTodoById(existingTodo);
+        if (rowsAffected == 0){
+            return "Failure";
+        }
+        return "Success";
     }
 
 }
